@@ -4,7 +4,7 @@ import { CreateAulaUseCase } from './CreateAulaUseCase'
 export class CreateAulaController {
 
   async handle(request: Request, response: Response) {
-    const { id_students, presence, lesson } = request.body
+    const { id_students, presence, lesson, students } = request.body
     const { id_teacher } = request
 
     const createAulaUseCase = new CreateAulaUseCase()
@@ -13,6 +13,7 @@ export class CreateAulaController {
       id_teacher,
       presence,
       lesson,
+      students
     })
 
     return response.json(result)
