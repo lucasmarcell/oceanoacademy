@@ -33,7 +33,7 @@ routes.post('/aula/', ensureAuthenticateTeacher, createAulaController.handle)
 
 routes.get('/aulas/', findAulasController.handle)
 
-routes.patch('/aulas/update/', updateAulasController.handle)
+routes.patch('/aula/update/:id', updateAulasController.handle)
 
 
 export { routes }

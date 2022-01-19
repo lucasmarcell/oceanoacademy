@@ -1,15 +1,22 @@
 import { prisma } from '../../../../database/prismaClient'
 
+
+
+interface IUpdateAula {
+  id_aula: string;
+  id_students: string;
+}
+
 export class UpdateAulasUseCase {
-  async execute() {
+  async execute({ id_aula, id_students }: IUpdateAula) {
     const aula = await prisma.aula.update({
       where: {
-        id: "a2437e44-63b1-45b6-9fba-3712e74b3a2f"
+        id: id_aula
       },
       data: {
         students: {
           connect: {
-            id: "64857aa7-b75c-4db3-b25a-af517c176af1",
+            id: id_students,
           }
         }
       }
