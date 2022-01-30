@@ -4,15 +4,28 @@ import { prisma } from '../../../../database/prismaClient'
 export class FindAulasUseCase {
   async execute() {
     const aula = await prisma.aula.findMany({
-      include: {
-        students: {
+      select: {
+        id: true,
+        lesson: true,
+        /*         students: {
+                  select: {
+                    id: true,
+                    username: true,
+                  }
+                }, */
+        _count: {
           select: {
-            id: true,
+            students: true
+          }
+        },
+        teacher: {
+          select: {
             username: true,
           }
         }
 
       },
+
     })
 
     return aula;
