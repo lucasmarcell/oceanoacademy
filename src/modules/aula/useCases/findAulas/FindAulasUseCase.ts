@@ -25,6 +25,9 @@ export class FindAulasUseCase {
         }
 
       },
+      orderBy: {
+        created_at: 'desc'
+      }
 
     })
 
