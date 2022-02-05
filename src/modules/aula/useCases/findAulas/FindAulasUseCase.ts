@@ -7,12 +7,12 @@ export class FindAulasUseCase {
       select: {
         id: true,
         lesson: true,
-        /*         students: {
-                  select: {
-                    id: true,
-                    username: true,
-                  }
-                }, */
+        students: {
+          select: {
+            id: true,
+            username: true,
+          }
+        },
         _count: {
           select: {
             students: true
