@@ -34,7 +34,7 @@ routes.get('/students/', ensureAuthenticateTeacher, findStudentsController.handl
 routes.post('/aula/', ensureAuthenticateTeacher, createAulaController.handle)
 
 routes.get('/aulas/', findAulasController.handle)
-routes.get('/aulas/students/', findStudentsAulasController.handle)
+routes.get('/aulas/:id/students/', findStudentsAulasController.handle)
 routes.patch('/aula/update/:id', updateAulasController.handle)
 
 

@@ -4,11 +4,10 @@ import { FindStudentsAulasUseCase } from './FindStudentsAulasUseCase'
 export class FindStudentsAulasController {
 
   async handle(request: Request, response: Response) {
-    const { id_students, presence, lesson } = request.body
-    const { id_teacher } = request
+    const { id: id_aula } = request.params
 
     const findStudentsAulasUseCase = new FindStudentsAulasUseCase()
-    const result = await findStudentsAulasUseCase.execute()
+    const result = await findStudentsAulasUseCase.execute({ id_aula })
 
     return response.json(result)
   }
