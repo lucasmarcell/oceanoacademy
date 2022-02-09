@@ -8,6 +8,7 @@ import { ensureAuthenticateTeacher } from './middlewares/ensureAuthenticateTeach
 import { FindAulasController } from './modules/aula/useCases/findAulas/FindAulasController'
 import { UpdateAulasController } from './modules/aula/useCases/updateAulas/UpdateAulasController'
 import { FindStudentsController } from './modules/students/useCases/findStudents/FindStudentsController'
+import { FindStudentsAulasController } from './modules/aula/useCases/findStudentsAulas/FindStudentsAulasController'
 
 
 const routes = Router()
@@ -19,6 +20,7 @@ const createAulaController = new CreateAulaController()
 const authenticateStudentController = new AuthenticateStudentController()
 const authenticateTeacherController = new AuthenticateTeacherController()
 const findAulasController = new FindAulasController()
+const findStudentsAulasController = new FindStudentsAulasController()
 const updateAulasController = new UpdateAulasController()
 
 routes.post('/student/authenticate', authenticateStudentController.handle)
@@ -32,7 +34,7 @@ routes.get('/students/', ensureAuthenticateTeacher, findStudentsController.handl
 routes.post('/aula/', ensureAuthenticateTeacher, createAulaController.handle)
 
 routes.get('/aulas/', findAulasController.handle)
-
+routes.get('/aulas/students/', findStudentsAulasController.handle)
 routes.patch('/aula/update/:id', updateAulasController.handle)
 
 
